@@ -2,7 +2,7 @@ import React from "react";
 import { CssBaseline } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 
-// import useStyles from "./styles";
+import useStyles from "./styles";
 
 import {
   Actors,
@@ -13,16 +13,22 @@ import {
 } from "../components/Index";
 
 const App = () => {
+  const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.root}>
       <CssBaseline />
       <NavBar />
-      <main>
-        <div/>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
         <Routes>
-          <Route path="/actors" element={<Actors />} />;
-          <Route path="/movieinformation" element={<Movieinformation />} />;
+          <Route exact path="/actors" element={<Actors />} />;
+          <Route
+            exact
+            path="/movieinformation"
+            element={<Movieinformation />}
+          />
+          ;
           <Route exact path="/movies" element={<Movies />} />;
           <Route exact path="/navbar" element={<NavBar />} />;
           <Route exact path="/profile" element={<Profile />} />;
